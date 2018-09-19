@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 import verse
 from verse import Vget
+import json
 
 
 app = Flask(__name__)
@@ -21,7 +22,7 @@ def flip():
 @app.route('/api/verse/<trans>/<book>/<chapter>/<verse>')
 def verseget(trans, book, chapter, verse):
     v = Vget(trans, book, chapter, verse)
-    return (v)
+    return json.dumps(v)
 
 
 
