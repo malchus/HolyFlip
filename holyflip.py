@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_dance.contrib.twitter import make_twitter_blueprint,twitter
 from flask import render_template
 import verse
 from verse import Vget
@@ -6,7 +7,7 @@ import json
 
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = 'something'
 
 @app.route('/')
 def index():
@@ -26,6 +27,7 @@ def verseget(trans, book, chapter, verse):
 
 
 
-
+if __name__ == '__main__':
+		app.run(debug=True)
 
 
